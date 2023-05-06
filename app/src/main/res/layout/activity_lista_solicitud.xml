@@ -8,9 +8,39 @@
     tools:context=".ListaSolicitudActivity">
 
 
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Buscar solicitud"
+        android:textStyle="bold"
+        android:textSize="20dp"
+        android:textAlignment="center" />
+
     <TextView
         android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="TextView" />
+        android:text="Ingrese criterio de busqueda" />
+
+    <EditText
+        android:id="@+id/txtCriterio"
+        android:layout_width="match_parent"
+        android:layout_height="59dp"
+        android:ems="10"
+        android:hint="Escriba aqui..."
+        android:text="" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Buscar"
+        android:onClick="buscar" />
+
+    <ListView
+        android:id="@+id/lista"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
 </LinearLayout>

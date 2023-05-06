@@ -20,10 +20,9 @@ import com.google.firebase.database.ValueEventListener;
 public class SolicitudActivity extends AppCompatActivity {
 
     EditText solicitudNombre, solicitudUsuario, solicitudLatitud, solicitudLongitud, solicitudPedido;
-    //TextView detalleRedirectText;
     Button solicitarButton, detalleSolicitudButton;
-    FirebaseDatabase database;
-    DatabaseReference reference;
+    FirebaseDatabase databaseS;
+    DatabaseReference referenceS;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,22 +34,21 @@ public class SolicitudActivity extends AppCompatActivity {
         solicitudLatitud = findViewById(R.id.solicitud_latitud);
         solicitudLongitud = findViewById(R.id.solicitud_longitud);
         solicitudPedido = findViewById(R.id.solicitud_pedido);
-        //detalleRedirectText = findViewById(R.id.detalleRedirectText);
         solicitarButton = findViewById(R.id.solicitar_button);
         detalleSolicitudButton = findViewById(R.id.detalle_solicitud_button);
 
         solicitarButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                database = FirebaseDatabase.getInstance();
-                reference = database.getReference("solicitudes");
+                databaseS = FirebaseDatabase.getInstance();
+                referenceS = databaseS.getReference("solicitudes");
                 String usuario = solicitudUsuario.getText().toString();
                 String nombre = solicitudNombre.getText().toString();
                 String latitud = solicitudLatitud.getText().toString();
                 String longitud = solicitudLongitud.getText().toString();
                 String pedido = solicitudPedido.getText().toString();
                 SolicitudClass solicitudClass = new SolicitudClass(usuario, nombre, latitud, longitud, pedido);
-                reference.child(usuario).setValue(solicitudClass);
+                referenceS.child(usuario).setValue(solicitudClass);
                 Toast.makeText(SolicitudActivity.this, "Solicitud successfully!", Toast.LENGTH_SHORT).show();
                 //Intent intent = new Intent(SolicitudActivity.this, DetalleSolicitudActivity.class);
                 //startActivity(intent);
@@ -81,13 +79,13 @@ public class SolicitudActivity extends AppCompatActivity {
                     String latitudFromDB = snapshot.child(userUsername).child("latitud").getValue(String.class);
                     String longitudFromDB = snapshot.child(userUsername).child("longitud").getValue(String.class);
                     String pedidoFromDB = snapshot.child(userUsername).child("pedido").getValue(String.class);
-                    String usernameFromDB = snapshot.child(userUsername).child("usaurio").getValue(String.class);
+                    String usernameFromDB = snapshot.child(userUsername).child("usuario").getValue(String.class);
                     Intent intent = new Intent(SolicitudActivity.this, DetalleSolicitudActivity.class);
                     intent.putExtra("name", nombreFromDB);
                     intent.putExtra("email", latitudFromDB);
                     intent.putExtra("longitud", longitudFromDB);
                     intent.putExtra("pedido", pedidoFromDB);
-                    intent.putExtra("username", usernameFromDB);
+                    intent.putExtra("usuario", usernameFromDB);
                     startActivity(intent);
                 }
             }
