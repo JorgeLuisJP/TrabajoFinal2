@@ -2,7 +2,7 @@ package com.example.trabajofinal2;
 
 public class SolicitudClass {
 
-    String usuario, nombre, latitud, longitud, pedido;
+    String nombre, latitud, longitud, usuario, pedido;
 
     public String getUsuario() {
         return usuario;
@@ -44,11 +44,11 @@ public class SolicitudClass {
         this.pedido = pedido;
     }
 
-    public SolicitudClass(String usuario, String nombre, String latitud, String longitud, String pedido) {
-        this.usuario = usuario;
+    public SolicitudClass(String nombre, String latitud, String longitud, String usuario,String pedido) {
         this.nombre = nombre;
         this.latitud = latitud;
         this.longitud = longitud;
+        this.usuario = usuario;
         this.pedido = pedido;
     }
 

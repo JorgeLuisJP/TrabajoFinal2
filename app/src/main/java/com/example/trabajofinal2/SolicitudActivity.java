@@ -42,14 +42,14 @@ public class SolicitudActivity extends AppCompatActivity {
             public void onClick(View v) {
                 databaseS = FirebaseDatabase.getInstance();
                 referenceS = databaseS.getReference("solicitudes");
-                String usuario = solicitudUsuario.getText().toString();
                 String nombre = solicitudNombre.getText().toString();
                 String latitud = solicitudLatitud.getText().toString();
                 String longitud = solicitudLongitud.getText().toString();
+                String usuario = solicitudUsuario.getText().toString();
                 String pedido = solicitudPedido.getText().toString();
-                SolicitudClass solicitudClass = new SolicitudClass(usuario, nombre, latitud, longitud, pedido);
+                SolicitudClass solicitudClass = new SolicitudClass(nombre, latitud, longitud,usuario, pedido);
                 referenceS.child(usuario).setValue(solicitudClass);
-                Toast.makeText(SolicitudActivity.this, "Solicitud successfully!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(SolicitudActivity.this, "Solicitud completado!", Toast.LENGTH_SHORT).show();
                 //Intent intent = new Intent(SolicitudActivity.this, DetalleSolicitudActivity.class);
                 //startActivity(intent);
             }
@@ -78,14 +78,14 @@ public class SolicitudActivity extends AppCompatActivity {
                     String nombreFromDB = snapshot.child(userUsername).child("nombre").getValue(String.class);
                     String latitudFromDB = snapshot.child(userUsername).child("latitud").getValue(String.class);
                     String longitudFromDB = snapshot.child(userUsername).child("longitud").getValue(String.class);
-                    String pedidoFromDB = snapshot.child(userUsername).child("pedido").getValue(String.class);
                     String usernameFromDB = snapshot.child(userUsername).child("usuario").getValue(String.class);
+                    String pedidoFromDB = snapshot.child(userUsername).child("pedido").getValue(String.class);
                     Intent intent = new Intent(SolicitudActivity.this, DetalleSolicitudActivity.class);
-                    intent.putExtra("name", nombreFromDB);
-                    intent.putExtra("email", latitudFromDB);
+                    intent.putExtra("nombre", nombreFromDB);
+                    intent.putExtra("latitud", latitudFromDB);
                     intent.putExtra("longitud", longitudFromDB);
-                    intent.putExtra("pedido", pedidoFromDB);
                     intent.putExtra("usuario", usernameFromDB);
+                    intent.putExtra("pedido", pedidoFromDB);
                     startActivity(intent);
                 }
             }

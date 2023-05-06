@@ -17,6 +17,7 @@ import com.google.firebase.database.ValueEventListener;
 public class DetalleSolicitudActivity extends AppCompatActivity {
 
     TextView detalleNombre, detalleLatitud, detalleLongitud, detallePedido, detalleUsuario;
+    TextView tituloNombre, tituloUsuario;
 
     String nombreUser, latitudUser, longitudUser, usuarioUser, pedidoUser;
 
@@ -33,6 +34,8 @@ public class DetalleSolicitudActivity extends AppCompatActivity {
         detalleLongitud = findViewById(R.id.detalleLongitud);
         detallePedido = findViewById(R.id.detallePedido);
         detalleUsuario = findViewById(R.id.detalleUsuario);
+        tituloNombre = findViewById(R.id.tituloNombre);
+        tituloUsuario = findViewById(R.id.tituloUsuario);
         showAllUserData();
 
 
@@ -46,10 +49,12 @@ public class DetalleSolicitudActivity extends AppCompatActivity {
         longitudUser = intent.getStringExtra("longitud");
         usuarioUser = intent.getStringExtra("usuario");
         pedidoUser = intent.getStringExtra("pedido");
-        detalleUsuario.setText(usuarioUser);
+        tituloNombre.setText(nombreUser);
+        tituloUsuario.setText(usuarioUser);
         detalleNombre.setText(nombreUser);
         detalleLatitud.setText(latitudUser);
         detalleLongitud.setText(longitudUser);
+        detalleUsuario.setText(usuarioUser);
         detallePedido.setText(pedidoUser);
     }
 
