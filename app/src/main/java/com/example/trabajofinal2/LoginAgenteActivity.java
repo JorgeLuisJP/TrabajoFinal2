@@ -88,10 +88,12 @@ public class LoginAgenteActivity extends AppCompatActivity {
                         loginUsernameAgente.setError(null);
                         String nameFromDB = snapshot.child(userUsername).child("name").getValue(String.class);
                         String emailFromDB = snapshot.child(userUsername).child("email").getValue(String.class);
+                        String placaFromDB = snapshot.child(userUsername).child("placa").getValue(String.class);
                         String usernameFromDB = snapshot.child(userUsername).child("username").getValue(String.class);
                         Intent intent = new Intent(LoginAgenteActivity.this, ProfileAgenteActivity.class);
                         intent.putExtra("name", nameFromDB);
                         intent.putExtra("email", emailFromDB);
+                        intent.putExtra("placa", placaFromDB);
                         intent.putExtra("username", usernameFromDB);
                         intent.putExtra("password", passwordFromDB);
                         startActivity(intent);

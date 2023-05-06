@@ -20,10 +20,10 @@ import com.google.firebase.database.ValueEventListener;
 public class EditProfileAgenteActivity extends AppCompatActivity {
 
 
-    EditText editNameAgente, editEmailAgente, editUsernameAgente, editPasswordAgente;
+    EditText editNameAgente, editEmailAgente, editPlacaAgente,editUsernameAgente, editPasswordAgente;
     Button saveButtonAgente;
     Button exitButtonAgente;
-    String nameUser, emailUser, usernameUser, passwordUser;
+    String nameUser, emailUser, placaUser, usernameUser, passwordUser;
     DatabaseReference reference;
 
 
@@ -36,6 +36,7 @@ public class EditProfileAgenteActivity extends AppCompatActivity {
         reference = FirebaseDatabase.getInstance().getReference("agentes");
         editNameAgente = findViewById(R.id.editNameAgente);
         editEmailAgente = findViewById(R.id.editEmailAgente);
+        editPlacaAgente = findViewById(R.id.editPlacaAgente);
         editUsernameAgente = findViewById(R.id.editUsernameAgente);
         editPasswordAgente = findViewById(R.id.editPasswordAgente);
         saveButtonAgente = findViewById(R.id.saveButtonAgente);
@@ -44,7 +45,7 @@ public class EditProfileAgenteActivity extends AppCompatActivity {
         saveButtonAgente.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (isNameChanged() || isPasswordChanged() || isEmailChanged()){
+                if (isNameChanged() || isPasswordChanged() || isPlacaChanged() || isEmailChanged()){
                     Toast.makeText(EditProfileAgenteActivity.this, "Saved", Toast.LENGTH_SHORT).show();
                 } else {
                     Toast.makeText(EditProfileAgenteActivity.this, "No Changes Found", Toast.LENGTH_SHORT).show();
@@ -82,6 +83,15 @@ public class EditProfileAgenteActivity extends AppCompatActivity {
             return false;
         }
     }
+    private boolean isPlacaChanged() {
+        if (!placaUser.equals(editPlacaAgente.getText().toString())){
+            reference.child(usernameUser).child("placa").setValue(editPlacaAgente.getText().toString());
+            placaUser = editPlacaAgente.getText().toString();
+            return true;
+        } else {
+            return false;
+        }
+    }
     private boolean isPasswordChanged() {
         if (!passwordUser.equals(editPasswordAgente.getText().toString())){
             reference.child(usernameUser).child("password").setValue(editPasswordAgente.getText().toString());
@@ -95,10 +105,12 @@ public class EditProfileAgenteActivity extends AppCompatActivity {
         Intent intent = getIntent();
         nameUser = intent.getStringExtra("name");
         emailUser = intent.getStringExtra("email");
+        placaUser = intent.getStringExtra("placa");
         usernameUser = intent.getStringExtra("username");
         passwordUser = intent.getStringExtra("password");
         editNameAgente.setText(nameUser);
         editEmailAgente.setText(emailUser);
+        editPlacaAgente.setText(placaUser);
         editUsernameAgente.setText(usernameUser);
         editPasswordAgente.setText(passwordUser);
     }
@@ -113,11 +125,13 @@ public class EditProfileAgenteActivity extends AppCompatActivity {
                 if (snapshot.exists()){
                     String nameFromDB = snapshot.child(userUsername).child("name").getValue(String.class);
                     String emailFromDB = snapshot.child(userUsername).child("email").getValue(String.class);
+                    String placaFromDB = snapshot.child(userUsername).child("placa").getValue(String.class);
                     String usernameFromDB = snapshot.child(userUsername).child("username").getValue(String.class);
                     String passwordFromDB = snapshot.child(userUsername).child("password").getValue(String.class);
                     Intent intent = new Intent(EditProfileAgenteActivity.this, ProfileAgenteActivity.class);
                     intent.putExtra("name", nameFromDB);
                     intent.putExtra("email", emailFromDB);
+                    intent.putExtra("placa", placaFromDB);
                     intent.putExtra("username", usernameFromDB);
                     intent.putExtra("password", passwordFromDB);
                     startActivity(intent);

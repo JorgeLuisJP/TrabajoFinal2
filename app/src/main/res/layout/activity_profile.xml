@@ -66,7 +66,7 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/name"
                 android:layout_weight="1"
-                android:text="Name"
+                android:text="Nombre"
                 android:textStyle="bold"
                 android:textColor="@color/lavender"
                 android:textSize="18sp"/>
@@ -97,7 +97,7 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/email"
                 android:layout_weight="1"
-                android:text="Email"
+                android:text="Correo"
                 android:textStyle="bold"
                 android:textColor="@color/lavender"
                 android:textSize="18sp"/>
@@ -128,7 +128,7 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/username"
                 android:layout_weight="1"
-                android:text="Username"
+                android:text="Telefono"
                 android:textStyle="bold"
                 android:textColor="@color/lavender"
                 android:textSize="18sp"/>
@@ -159,7 +159,7 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/password"
                 android:layout_weight="1"
-                android:text="Password"
+                android:text="Contraseña"
                 android:textStyle="bold"
                 android:textColor="@color/lavender"
                 android:textSize="18sp"/>
@@ -174,18 +174,36 @@
                 android:textSize="18sp"/>
         </LinearLayout>
     </LinearLayout>
+
     <Button
+        android:id="@+id/editButton"
         android:layout_width="0dp"
         android:layout_height="60dp"
-        android:id="@+id/editButton"
         android:gravity="center"
-        android:text="Edit Profile"
+        android:text="Editar Perfil"
         android:textSize="18sp"
-        app:cornerRadius = "20dp"
+        app:cornerRadius="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@id/linearLayout"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@id/linearLayout"
-        app:layout_constraintTop_toBottomOf="@id/linearLayout"/>
+        app:layout_constraintTop_toBottomOf="@id/linearLayout"
+        app:layout_constraintVertical_bias="0.211" />
+
+    <Button
+        android:id="@+id/nuevaSolicitudButton"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:gravity="center"
+        android:text="Nueva Solicitud"
+        android:textSize="18sp"
+        app:cornerRadius="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/linearLayout"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@id/linearLayout"
+        app:layout_constraintTop_toBottomOf="@id/linearLayout"
+        app:layout_constraintVertical_bias="0.72" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

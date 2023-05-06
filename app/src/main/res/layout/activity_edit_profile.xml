@@ -29,7 +29,7 @@
             android:background="@drawable/lavender_border"
             android:layout_marginTop="40dp"
             android:padding="8dp"
-            android:hint="Name"
+            android:hint="Nombre"
             android:drawableLeft="@drawable/baseline_person_24"
             android:drawablePadding="8dp"
             android:textColor="@color/black"/>
@@ -40,7 +40,7 @@
             android:background="@drawable/lavender_border"
             android:layout_marginTop="20dp"
             android:padding="8dp"
-            android:hint="Email"
+            android:hint="Correo"
             android:drawableLeft="@drawable/baseline_email_24"
             android:drawablePadding="8dp"
             android:textColor="@color/black"/>
@@ -51,9 +51,10 @@
             android:background="@drawable/lavender_border"
             android:layout_marginTop="20dp"
             android:padding="8dp"
-            android:hint="Username"
-            android:drawableLeft="@drawable/baseline_person_pin_24"
+            android:hint="Telefono"
+            android:drawableLeft="@drawable/baseline_phone_24"
             android:drawablePadding="8dp"
+            android:inputType="phone"
             android:textColor="@color/black"/>
         <EditText
             android:layout_width="match_parent"
@@ -62,7 +63,7 @@
             android:background="@drawable/lavender_border"
             android:layout_marginTop="20dp"
             android:padding="8dp"
-            android:hint="Password"
+            android:hint="Contraseña"
             android:inputType="textPassword"
             android:drawableLeft="@drawable/baseline_lock_24"
             android:drawablePadding="8dp"
@@ -70,7 +71,7 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:text="Save"
+            android:text="Guardar"
             android:id="@+id/saveButton"
             android:textSize="18sp"
             android:layout_marginTop="30dp"
@@ -79,7 +80,7 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:text="Exit"
+            android:text="Salir"
             android:id="@+id/exitButton"
             android:textSize="18sp"
             android:layout_marginTop="30dp"
