@@ -21,6 +21,15 @@
         android:name="com.google.android.maps.v2.API_KEY"
         android:value="AIzaSyAa4hkdiHk2Qb7tMP8TNeU9kUVJomwTC_E"/>
         <activity
+            android:name=".ListaSolicitudActivity"
+            android:exported="false" />
+        <activity
+            android:name=".DetalleSolicitudActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SolicitudActivity"
+            android:exported="false" />
+        <activity
             android:name=".EditProfileAgenteActivity"
             android:exported="false" />
         <activity

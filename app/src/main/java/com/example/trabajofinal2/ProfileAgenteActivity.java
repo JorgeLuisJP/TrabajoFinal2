@@ -17,7 +17,7 @@ import com.google.firebase.database.ValueEventListener;
 public class ProfileAgenteActivity extends AppCompatActivity {
 
 
-    TextView profileNameAgente, profileEmailAgente, profileUsernameAgente, profilePasswordAgente;
+    TextView profileNameAgente, profileEmailAgente, profilePlacaAgente, profileUsernameAgente, profilePasswordAgente;
     TextView titleNameAgente, titleUsernameAgente;
     Button editProfileAgente;
 
@@ -29,6 +29,7 @@ public class ProfileAgenteActivity extends AppCompatActivity {
 
         profileNameAgente = findViewById(R.id.profileNameAgente);
         profileEmailAgente = findViewById(R.id.profileEmailAgente);
+        profilePlacaAgente = findViewById(R.id.profilePlacaAgente);
         profileUsernameAgente = findViewById(R.id.profileUsernameAgente);
         profilePasswordAgente = findViewById(R.id.profilePasswordAgente);
         titleNameAgente = findViewById(R.id.titleNameAgente);
@@ -48,12 +49,14 @@ public class ProfileAgenteActivity extends AppCompatActivity {
         Intent intent = getIntent();
         String nameUser = intent.getStringExtra("name");
         String emailUser = intent.getStringExtra("email");
+        String placaUser = intent.getStringExtra("placa");
         String usernameUser = intent.getStringExtra("username");
         String passwordUser = intent.getStringExtra("password");
         titleNameAgente.setText(nameUser);
         titleUsernameAgente.setText(usernameUser);
         profileNameAgente.setText(nameUser);
         profileEmailAgente.setText(emailUser);
+        profilePlacaAgente.setText(placaUser);
         profileUsernameAgente.setText(usernameUser);
         profilePasswordAgente.setText(passwordUser);
     }
@@ -67,11 +70,13 @@ public class ProfileAgenteActivity extends AppCompatActivity {
                 if (snapshot.exists()){
                     String nameFromDB = snapshot.child(userUsername).child("name").getValue(String.class);
                     String emailFromDB = snapshot.child(userUsername).child("email").getValue(String.class);
+                    String placaFromDB = snapshot.child(userUsername).child("placa").getValue(String.class);
                     String usernameFromDB = snapshot.child(userUsername).child("username").getValue(String.class);
                     String passwordFromDB = snapshot.child(userUsername).child("password").getValue(String.class);
                     Intent intent = new Intent(ProfileAgenteActivity.this, EditProfileAgenteActivity.class);
                     intent.putExtra("name", nameFromDB);
                     intent.putExtra("email", emailFromDB);
+                    intent.putExtra("placa", placaFromDB);
                     intent.putExtra("username", usernameFromDB);
                     intent.putExtra("password", passwordFromDB);
                     startActivity(intent);

@@ -18,7 +18,7 @@ public class ProfileActivity extends AppCompatActivity {
 
     TextView profileName, profileEmail, profileUsername, profilePassword;
     TextView titleName, titleUsername;
-    Button editProfile;
+    Button editProfile, nuevaSolicitud;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,11 +33,20 @@ public class ProfileActivity extends AppCompatActivity {
         titleName = findViewById(R.id.titleName);
         titleUsername = findViewById(R.id.titleUsername);
         editProfile = findViewById(R.id.editButton);
+        nuevaSolicitud = findViewById(R.id.nuevaSolicitudButton);
         showAllUserData();
         editProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 passUserData();
+            }
+        });
+
+        nuevaSolicitud.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ProfileActivity.this, SolicitudActivity.class);
+                startActivity(intent);
             }
         });
     }

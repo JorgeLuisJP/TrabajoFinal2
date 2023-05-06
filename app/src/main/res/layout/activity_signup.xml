@@ -30,7 +30,7 @@
             android:background="@drawable/lavender_border"
             android:layout_marginTop="40dp"
             android:padding="8dp"
-            android:hint="Name"
+            android:hint="Nombre"
             android:drawableLeft="@drawable/baseline_person_24"
             android:drawablePadding="8dp"
             android:textColor="@color/black"/>
@@ -41,7 +41,7 @@
             android:background="@drawable/lavender_border"
             android:layout_marginTop="20dp"
             android:padding="8dp"
-            android:hint="Email"
+            android:hint="Correo"
             android:drawableLeft="@drawable/baseline_email_24"
             android:drawablePadding="8dp"
             android:textColor="@color/black"/>
@@ -52,9 +52,10 @@
             android:background="@drawable/lavender_border"
             android:layout_marginTop="20dp"
             android:padding="8dp"
-            android:hint="Phone"
+            android:hint="Telefono"
             android:drawableLeft="@drawable/baseline_phone_24"
             android:drawablePadding="8dp"
+            android:inputType="phone"
             android:textColor="@color/black"/>
         <EditText
             android:layout_width="match_parent"
@@ -63,7 +64,7 @@
             android:background="@drawable/lavender_border"
             android:layout_marginTop="20dp"
             android:padding="8dp"
-            android:hint="Password"
+            android:hint="Contraseña"
             android:inputType="textPassword"
             android:drawableLeft="@drawable/baseline_lock_24"
             android:drawablePadding="8dp"
@@ -71,7 +72,7 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:text="Sign Up"
+            android:text="Registrar"
             android:id="@+id/signup_button"
             android:textSize="18sp"
             android:layout_marginTop="30dp"
@@ -81,7 +82,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/loginRedirectText"
-            android:text="Already an user? Login"
+            android:text="Ya se registró? Inicie sesión"
             android:layout_gravity="center"
             android:padding="8dp"
             android:layout_marginTop="10dp"

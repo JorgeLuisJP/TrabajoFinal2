@@ -14,7 +14,7 @@ import com.google.firebase.database.FirebaseDatabase;
 public class SignupAgenteActivity extends AppCompatActivity {
 
 
-    EditText signupNameAgente, signupUsernameAgente, signupEmailAgente, signupPasswordAgente;
+    EditText signupNameAgente, signupUsernameAgente,signupPlacaAgente ,signupEmailAgente, signupPasswordAgente;
     TextView loginAgenteRedirectText;
     Button signupAgenteButton;
     FirebaseDatabase database;
@@ -28,6 +28,7 @@ public class SignupAgenteActivity extends AppCompatActivity {
 
         signupNameAgente = findViewById(R.id.signup_agente_name);
         signupEmailAgente = findViewById(R.id.signup_agente_email);
+        signupPlacaAgente = findViewById(R.id.signup_agente_placa);
         signupUsernameAgente = findViewById(R.id.signup_agente_username);
         signupPasswordAgente = findViewById(R.id.signup_agente_password);
         loginAgenteRedirectText = findViewById(R.id.loginAgenteRedirectText);
@@ -39,9 +40,10 @@ public class SignupAgenteActivity extends AppCompatActivity {
                 reference = database.getReference("agentes");
                 String name = signupNameAgente.getText().toString();
                 String email = signupEmailAgente.getText().toString();
+                String placa = signupPlacaAgente.getText().toString();
                 String username = signupUsernameAgente.getText().toString();
                 String password = signupPasswordAgente.getText().toString();
-                HelperClassAgente helperClassAgente = new HelperClassAgente(name, email, username, password);
+                HelperClassAgente helperClassAgente = new HelperClassAgente(name, email, placa, username, password);
                 reference.child(username).setValue(helperClassAgente);
                 Toast.makeText(SignupAgenteActivity.this, "You have signup successfully!", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(SignupAgenteActivity.this, LoginAgenteActivity.class);
